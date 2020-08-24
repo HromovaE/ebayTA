@@ -8,18 +8,15 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class SearchTest extends BaseTest {
 
-    private static final String SEARCH_RESULT = "query=iPhone"; //constanta
-    private static final String SEARCH_KEYWORD = "iPhone 11"; //constanta
-    private static final int EXPECTED_PRODUCTS_AMOUNT = 12; //constanta
-    private static final int EXPECTED_FILTERED_PRODUCTS_AMOUNT = 6; //constanta
+    private static final String SEARCH_KEYWORD = "realme x2 pro";
 
-    /*@Test(priority = 1)
-    public void checkThatUrlContainsSearchWord() {
+    @Test(priority = 2)
+    public void checkThatSearchResultsContainsSearchWord() {
         getHomePage().searchByKeyword(SEARCH_KEYWORD);
-        assertTrue(getDriver().getCurrentUrl().contains(SEARCH_RESULT)); //проверяем что урла содержит кверю
-    }
+        assertTrue(getSearchResultPage().getProductList().get(1).getText().toLowerCase().contains(SEARCH_KEYWORD));
+           }
 
-
+/*
     @Test(priority = 2)
     public void checkElementsAmountOnSearchPage() {
         getHomePage().searchByKeyword(SEARCH_KEYWORD);
@@ -30,12 +27,6 @@ public class SearchTest extends BaseTest {
     }
 
     @Test(priority = 3)
-    public void checkThatSearchResultsContainsSearchWord() {
-        getHomePage().searchByKeyword(SEARCH_KEYWORD);
-        for (WebElement webElement : getSearchResultPage().getProductList()) { //прошлись циклом и проверили что каждый элемент листа содержит текс iPhone 11
-            assertTrue(webElement.getText().contains(SEARCH_KEYWORD));
-        }
-    }
 
     @Test(priority = 4)
     public void checkFilterByColor() {

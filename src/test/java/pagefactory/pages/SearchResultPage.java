@@ -10,7 +10,7 @@ import java.util.List;
 
 public class SearchResultPage extends BasePage {
 
-    @FindBy(xpath = "//div[@class='prod-cart__descr']")
+    @FindBy(xpath = "//h3[@class='s-item__title']")
     private List<WebElement> productList;
 
     public SearchResultPage (WebDriver driver) {

@@ -10,7 +10,7 @@ import pagefactory.pages.*;
 public class BaseTest {
 
     private WebDriver driver;
-    public static final String AVIC_URL = "https://www.ebay.com/"; //constanta
+    public static final String AVIC_URL = "https://www.ebay.com/";
     protected static final int AMOUNT_SECONDS_TO_WAIT = 30;
 
     @BeforeTest
@@ -21,7 +21,7 @@ public class BaseTest {
     @BeforeMethod
     public void testSetUp() {
         driver = new ChromeDriver();
-        driver.manage().window().maximize(); //браузер на весь экран
+        driver.manage().window().maximize();
         driver.get(AVIC_URL);
     }
 
@@ -47,6 +47,15 @@ public class BaseTest {
     }
 
     public ProductPage getProductPage(){
+
         return new ProductPage(driver);
+    }
+
+    public SearchResultPage getSearchResultPage() {
+        return new SearchResultPage(driver);
+    }
+
+    public CartPage getCartPage(){
+        return new CartPage(driver);
     }
 }
